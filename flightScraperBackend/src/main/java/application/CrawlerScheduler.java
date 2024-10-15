@@ -19,5 +19,6 @@ public class CrawlerScheduler {
     @Scheduled(fixedRate = 30000)
     public void scheduleFixedRateTask() {
         System.out.println("-----------the Scheduler Works---------");
+        System.out.println("-----------Lets add feature 1---------");
     }
 }
