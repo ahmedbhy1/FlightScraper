@@ -2,10 +2,17 @@ package application.mapper;
 
 import application.dto.CreateFlightDto;
 import application.model.Flight;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FlightMapper {
 
-    public static Flight toCreateEntity(CreateFlightDto dto, Flight flight) {
+    // Constructor for dependency injection
+    public FlightMapper() {
+        // Any setup or initialization if needed
+    }
+
+    public Flight toCreateEntity(CreateFlightDto dto, Flight flight) {
         flight.setPrice(dto.getPrice());
         flight.setCurrency(dto.getCurrency());
         flight.setIsDirectFlight(dto.getIsDirectFlight());

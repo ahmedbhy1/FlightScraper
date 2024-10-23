@@ -17,6 +17,9 @@ public class FlightService {
     @Autowired
     private FlightRepository flightRepository;
 
+    @Autowired
+    private FlightMapper flightMapper;
+
     public List<Flight> getAllFlights() {
         return flightRepository.findAll();
 
@@ -27,7 +30,7 @@ public class FlightService {
     }
 
     public Flight addFlight(CreateFlightDto flightDto) {
-        Flight newFlight = FlightMapper.toCreateEntity(flightDto,new Flight());
+        Flight newFlight = flightMapper.toCreateEntity(flightDto,new Flight());
         return flightRepository.save(newFlight);
     }
 
