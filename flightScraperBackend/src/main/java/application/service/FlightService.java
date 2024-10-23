@@ -1,7 +1,6 @@
 package application.service;
 
 import java.util.List;
-
 import application.dto.CreateFlightDto;
 import application.mapper.FlightMapper;
 import application.model.Flight;
@@ -27,9 +26,9 @@ public class FlightService {
         return flightRepository.getOne(id);
     }
 
-    public void addFlight(CreateFlightDto flightDto) {
-        Flight newFlight = FlightMapper.toCreateEntity(flightDto);
-        flightRepository.save(newFlight);
+    public Flight addFlight(CreateFlightDto flightDto) {
+        Flight newFlight = FlightMapper.toCreateEntity(flightDto,new Flight());
+        return flightRepository.save(newFlight);
     }
 
     public void deleteFlight(Long id) {

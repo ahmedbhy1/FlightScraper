@@ -5,8 +5,9 @@ import application.model.Flight;
 
 public class FlightMapper {
 
-    public static Flight toCreateEntity(CreateFlightDto dto) {
-        Flight flight = new Flight();
+    public static Flight toCreateEntity(CreateFlightDto dto, Flight flight) {
+        flight.setPrice(dto.getPrice());
+        flight.setCurrency(dto.getCurrency());
         flight.setIsDirectFlight(dto.getIsDirectFlight());
         flight.setFlightDuration(dto.getFlightDuration());
         flight.setName(dto.getName());

@@ -33,19 +33,19 @@ public class FlightController {
         return flightService.getAllFlights();
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public Flight getFlight(@PathVariable("id)") Long flightid) {
         return flightService.getFlightById(flightid);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteFlight(@PathVariable("id") Long flightid) {
         flightService.deleteFlight(flightid);
     }
 
-    @PostMapping("/add")
-    public void addFlight(@RequestBody CreateFlightDto flight) {
-        flightService.addFlight(flight);
+    @PostMapping("")
+    public Flight addFlight(@RequestBody CreateFlightDto flight) {
+        return flightService.addFlight(flight);
     }
 
 }
