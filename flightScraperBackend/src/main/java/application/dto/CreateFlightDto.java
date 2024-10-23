@@ -1,18 +1,16 @@
-package application.model;
+package application.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.*;
+
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "flight")
-public class Flight {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CreateFlightDto {
+    private int price;
 
-    private String name;
+    private String currency;
+
+    private String agence;
 
     private String departureAirport;
 
@@ -22,21 +20,36 @@ public class Flight {
 
     private int flightDuration;
 
-    private int price;
-
-    private String Currency;
-
-    private String agence;
-
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime departureDateTime;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime arrivalDateTime;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
+    private String name;
+
+    public boolean isDirectFlight() {
+        return isDirectFlight;
+    }
+
+    public void setDirectFlight(boolean directFlight) {
+        isDirectFlight = directFlight;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getName() {
@@ -63,36 +76,12 @@ public class Flight {
         this.arrivalAirport = arrivalAirport;
     }
 
-    public boolean getIsDirectFlight() {
-        return isDirectFlight;
-    }
-
-    public void setIsDirectFlight(boolean directFlight) {
-        isDirectFlight = directFlight;
-    }
-
     public int getFlightDuration() {
         return flightDuration;
     }
 
     public void setFlightDuration(int flightDuration) {
         this.flightDuration = flightDuration;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public String getCurrency() {
-        return Currency;
-    }
-
-    public void setCurrency(String currency) {
-        Currency = currency;
     }
 
     public LocalDateTime getDepartureDateTime() {
@@ -118,7 +107,8 @@ public class Flight {
     public void setAgence(String agence) {
         this.agence = agence;
     }
+
+    public boolean getIsDirectFlight() {
+        return isDirectFlight;
+    }
 }
-
-
-
